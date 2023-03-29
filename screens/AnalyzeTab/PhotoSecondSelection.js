@@ -6,8 +6,7 @@ import CustomButton from '../../components/CustomButton';
 
 
 const PhotoSecondSelection = ({ onPhotoSelected }) => {
-  const [secondSelectedImage, setSecondSelectedImage] = useState(null);
-
+  
   const handleCameraButtonPress = async () => {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
     if (status === 'granted') {
@@ -17,9 +16,8 @@ const PhotoSecondSelection = ({ onPhotoSelected }) => {
         aspect: [1, 1],
         quality: 1,
       });
-      if (!result.canceled) {
-        setSecondSelectedImage(result.uri);
-        onPhotoSelected(result.uri);
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        onPhotoSelected(result.assets[0].uri);
       }
     }
   };
@@ -33,9 +31,8 @@ const PhotoSecondSelection = ({ onPhotoSelected }) => {
         aspect: [1, 1],
         quality: 1,
       });
-      if (!result.canceled) {
-        setSecondSelectedImage(result.uri);
-        onPhotoSelected(result.uri);
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        onPhotoSelected(result.assets[0].uri);
       }
     }
   };

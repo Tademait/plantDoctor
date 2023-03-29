@@ -7,7 +7,6 @@ import textStyle from '../../assets/Style';
 
 
 const PhotoFirstSelection = ({ onPhotoSelected }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleCameraButtonPress = async () => {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
@@ -18,9 +17,8 @@ const PhotoFirstSelection = ({ onPhotoSelected }) => {
         aspect: [1, 1],
         quality: 1,
       });
-      if (!result.canceled) {
-        setSelectedImage(result.uri);
-        onPhotoSelected(result.uri);
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        onPhotoSelected(result.assets[0].uri);
       }
     }
   };
@@ -34,9 +32,8 @@ const PhotoFirstSelection = ({ onPhotoSelected }) => {
         aspect: [1, 1],
         quality: 1,
       });
-      if (!result.canceled) {
-        setSelectedImage(result.uri);
-        onPhotoSelected(result.uri);
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        onPhotoSelected(result.assets[0].uri);
       }
     }
   };
