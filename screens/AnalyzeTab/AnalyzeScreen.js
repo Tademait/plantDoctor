@@ -62,11 +62,10 @@ function AnalyzeScreen({navigation}) {
 
   async function saveImage() {
     // save the image into local storage
-    const {status} = await MediaLibrary.getPermissionsAsync();
+    const {status} = await MediaLibrary.requestPermissionsAsync();
+    console.log(status);
     if (status !== 'granted') {
-      await MediaLibrary.requestPermissionsAsync();
-    }
-    if (status !== 'granted') {
+      Alert.alert("No permission to access media library, can't save history image.");
       return undefined;
     }
     const asset = await MediaLibrary.createAssetAsync(firstPhotoUri);

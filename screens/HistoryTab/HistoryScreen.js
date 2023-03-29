@@ -125,7 +125,7 @@ function HistoryScreen({navigation}) {
               <View style={styles.entryContainer}>
                 {item.imageUri
                 ? <Image source={{uri:item.imageUri}} style={styles.entryImage} />
-                : <Text>No image available</Text>}
+                : <Text>No image</Text>}
                 <Text style={styles.entryTextSecondary}> Tap to show details </Text>
                 <View style={styles.detail}>
                   <Text style={styles.entryText}> {formatDate(item.date)} </Text>
