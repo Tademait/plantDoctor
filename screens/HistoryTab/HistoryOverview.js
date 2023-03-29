@@ -13,8 +13,8 @@ function HistoryOverview({route, navigation}) {
   }
   return (
     <ScrollView>
-      {(historyObj && historyObj.asset) 
-      ? <Image source={{uri:historyObj.asset.uri}} style={styles.image} />
+      {(historyObj && historyObj.imageUri) 
+      ? <Image source={{uri:historyObj.imageUri}} style={styles.image} />
       : <Text style={styles.emptyText}>No image data available </Text>}
       <Text style={styles.titleText}>Analysis history: </Text>
       {historyObj && historyObj.analysedDiseases

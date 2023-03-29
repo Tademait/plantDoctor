@@ -66,6 +66,9 @@ function AnalyzeScreen({navigation}) {
     if (status !== 'granted') {
       await MediaLibrary.requestPermissionsAsync();
     }
+    if (status !== 'granted') {
+      return undefined;
+    }
     const asset = await MediaLibrary.createAssetAsync(firstPhotoUri);
     //const album = await MediaLibrary.getAlbumAsync("plantApp");
     //if (!album){
@@ -82,7 +85,10 @@ function AnalyzeScreen({navigation}) {
 
   async function saveMetadata(asset, results) {
     // build the new identification object with disease details and image location
-    const imageUri = asset.uri;
+    let imageUri = undefined;
+    if (asset) {
+      imageUri = asset.uri;
+    }
     const date = new Date();
     const analysedDiseases = results;
     const newHistoryObject = { imageUri, date, selectedPlant, analysedDiseases, asset };

@@ -123,7 +123,9 @@ function HistoryScreen({navigation}) {
           renderItem={({item, index}) => 
             <TouchableOpacity key={index} onPress={() => navigation.navigate('HistoryOverview', {historyObj: item})}>
               <View style={styles.entryContainer}>
-                <Image source={{uri:item.asset.uri}} style={styles.entryImage} />
+                {item.imageUri
+                ? <Image source={{uri:item.imageUri}} style={styles.entryImage} />
+                : <Text>No image available</Text>}
                 <Text style={styles.entryTextSecondary}> Tap to show details </Text>
                 <View style={styles.detail}>
                   <Text style={styles.entryText}> {formatDate(item.date)} </Text>
@@ -134,7 +136,7 @@ function HistoryScreen({navigation}) {
                 </View>
               </View>
             </TouchableOpacity>}
-          keyExtractor={item => item.id}
+          keyExtractor={(item) => item.date.toString()}
         />
       ) : <Text style={styles.nothing}> Nothing to show here </Text>}
     </View>
