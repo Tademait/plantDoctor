@@ -22,7 +22,7 @@ function PhotoSecondPreview({ photoUri, onRetake, onStartOver, onSubmit, isLoadi
         <CustomButton buttonText="Analyze" iconName="eye-outline" handlePress={onSubmit} color="" />
         <View style={styles.buttonContainer}>
           <CustomButton buttonText="Retake Last Photo" iconName="return-down-back-outline" handlePress={onRetake} secondary={true} />
-          <CustomButton buttonText="Start Over" iconName="refresh-outline" handlePress={onRetake} secondary={true} />
+          <CustomButton buttonText="Start Over" iconName="refresh-outline" handlePress={onStartOver} secondary={true} />
         </View>
       </View>
     </View>

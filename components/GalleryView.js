@@ -8,8 +8,6 @@ function GalleryView({pictures}) {
   const [imageIndex, setImageIndex] = useState(0);
 
   function handleGalleryClick(direction){
-    console.log("index:");
-    console.log(imageIndex);
     if (direction === "left"){
       if (imageIndex-1 <= 0) {
         setImageIndex(0);

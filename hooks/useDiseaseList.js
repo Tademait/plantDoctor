@@ -19,7 +19,6 @@ function useDiseaseList(selectedPlant) {
           },
           body: formData,
         });
-        console.log("Sending request with useEffect");
         const data = await response.json();
         setData(data);
         } 

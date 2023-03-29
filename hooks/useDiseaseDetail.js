@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import { API_BASE_URL } from '../constants';
+import {Alert} from 'react-native';
 
 function useDiseaseDetail(disease, plant) {
  const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +26,7 @@ function useDiseaseDetail(disease, plant) {
         } 
       catch (error) {
         console.error(error);
-        alert("Failed to fetch data from server")
+        Alert.alert("Failed to fetch data from server")
         setIsLoading(false);
         }
       finally {

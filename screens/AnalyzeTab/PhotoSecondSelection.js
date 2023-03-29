@@ -17,7 +17,7 @@ const PhotoSecondSelection = ({ onPhotoSelected }) => {
         aspect: [1, 1],
         quality: 1,
       });
-      if (!result.cancelled) {
+      if (!result.canceled) {
         setSecondSelectedImage(result.uri);
         onPhotoSelected(result.uri);
       }
@@ -33,7 +33,7 @@ const PhotoSecondSelection = ({ onPhotoSelected }) => {
         aspect: [1, 1],
         quality: 1,
       });
-      if (!result.cancelled) {
+      if (!result.canceled) {
         setSecondSelectedImage(result.uri);
         onPhotoSelected(result.uri);
       }

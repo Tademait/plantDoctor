@@ -18,7 +18,7 @@ const PhotoFirstSelection = ({ onPhotoSelected }) => {
         aspect: [1, 1],
         quality: 1,
       });
-      if (!result.cancelled) {
+      if (!result.canceled) {
         setSelectedImage(result.uri);
         onPhotoSelected(result.uri);
       }
@@ -34,7 +34,7 @@ const PhotoFirstSelection = ({ onPhotoSelected }) => {
         aspect: [1, 1],
         quality: 1,
       });
-      if (!result.cancelled) {
+      if (!result.canceled) {
         setSelectedImage(result.uri);
         onPhotoSelected(result.uri);
       }

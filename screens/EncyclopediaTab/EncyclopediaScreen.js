@@ -14,7 +14,6 @@ function EncyclopediaScreen({navigation}) {
 
   const handlePressPlantDisease = (plantDisease) => {
     // Handle plant disease press
-    console.log(plantDisease);
     navigation.push('EncyclopediaDetail', {
       title: plantDisease.name,
       disease: plantDisease.name,

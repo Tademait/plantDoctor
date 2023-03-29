@@ -24,14 +24,13 @@ function HistoryScreen({navigation}) {
       // Call any action
       const loadHistory = async () => {
       try {
-        console.log("screen got focused");
         const storedHistory = await AsyncStorage.getItem('history');
         if (storedHistory) {
           setHistoryData(JSON.parse(storedHistory));
           setFilteredData(JSON.parse(storedHistory));
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     loadHistory();
