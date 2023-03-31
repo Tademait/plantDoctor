@@ -1,6 +1,4 @@
-import {Text, View, Button, TouchableOpacity, ActivityIndicator} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
-import {useState, useEffect} from 'react';
+import {Text, View} from 'react-native';
 
 
 function SettingsDetail() {

@@ -33,11 +33,7 @@ function SettingsStack() {
         <Stack.Screen
         name='SettingsCredits'
         component={SettingsCredits}
-        options={{headerTitle: 'Credits'}} /> 
-        <Stack.Screen
-        name='SettingsReportBug'
-        component={SettingsReportBug}
-        options={{headerTitle: 'Report bug'}} /> 
+        options={{headerTitle: 'Credits'}} />
         <Stack.Screen
         name='SettingsHelp'
         component={SettingsHelp}
