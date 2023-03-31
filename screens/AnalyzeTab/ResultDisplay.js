@@ -2,11 +2,12 @@ import {Text, Button, View, FlatList, SafeAreaView} from 'react-native';
 import PercentageOverview from '../../components/PercentageOverview';
 import CustomButton from '../../components/CustomButton';
 import {COLOR_SECONDARY} from '../../constants';
+import { capitalizeWords } from '../../helpers';
 
 function ResultDisplay({onStartOver, apiResponse, navigation, plant}) {
   function handlePercentageClick(item) {
     navigation.navigate('AnalyzeDetail', {
-            title:item.name,
+            title:capitalizeWords(item.name),
             disease:item.name,
             plant:plant})
   }

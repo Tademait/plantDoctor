@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import {COLOR_PRIMARY, COLOR_SECONDARY} from '../constants';
+import {capitalizeWords} from '../helpers';
 
 
 function PercentageOverview({data, handlePercentageClick}) {
@@ -10,7 +11,7 @@ function PercentageOverview({data, handlePercentageClick}) {
         <TouchableOpacity key={item.name} style={styles.touchable} 
           onPress={() => handlePercentageClick(item)}>
           <View style={[styles.bar, { width: `${item.percentage*100}%` }]} />
-          <Text style={styles.text}>{`${item.name} - ${(item.percentage*100).toFixed(2)}%`}</Text>
+          <Text style={styles.text}>{`${capitalizeWords(item.name)} - ${(item.percentage*100).toFixed(2)}%`}</Text>
         </TouchableOpacity>
       ))}
     </View>

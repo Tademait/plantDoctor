@@ -1,13 +1,14 @@
 import {Text, ScrollView, Image, StyleSheet} from 'react-native';
 import PercentageOverview from '../../components/PercentageOverview';
 import {COLOR_PRIMARY, COLOR_SECONDARY} from '../../constants';
+import { capitalizeWords } from '../../helpers';
 
 function HistoryOverview({route, navigation}) {
   const { historyObj } = route.params;
 
   function handlePercentageClick(item) {
     navigation.navigate('HistoryDetail', {
-            title:item.name,
+            title:capitalizeWords(item.name),
             disease:item.name,
             plant:historyObj.selectedPlant})
   }
