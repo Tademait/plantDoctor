@@ -1,7 +1,6 @@
 import SettingsScreen from './SettingsScreen';
 import SettingsDetail from './SettingsDetail';
 import SettingsCredits from './SettingsCredits';
-import SettingsReportBug from './SettingsReportBug';
 import SettingsHelp from './SettingsHelp';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {Button} from 'react-native';

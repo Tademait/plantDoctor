@@ -8,6 +8,7 @@ import React, {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as MediaLibrary from 'expo-media-library';
 import { API_BASE_URL } from '../../constants';
+import * as FileSystem from 'expo-file-system';
 
 
 function AnalyzeScreen({navigation}) {
@@ -43,8 +44,8 @@ function AnalyzeScreen({navigation}) {
       console.log("fetching data from API");
       const res = await getDataFromApi();
       if (res) {
-        const asset = await saveImage();
-        await saveMetadata(asset, res);
+        const localUri = await saveImage();
+        await saveMetadata(localUri, res);
       }
       setApiResponse(res);
       setScreenState('resultDisplay');
@@ -61,36 +62,35 @@ function AnalyzeScreen({navigation}) {
   }
 
   async function saveImage() {
-    // save the image into local storage
-    const {status} = await MediaLibrary.requestPermissionsAsync();
-    console.log(status);
-    if (status !== 'granted') {
-      Alert.alert("No permission to access media library, can't save history image.");
-      return undefined;
+    //! TODO: maybe I will need to ask for permission to save the image into local storage
+    // Save the image to local file system
+    const fileName = firstPhotoUri.split('/').pop();
+    const fileUri = FileSystem.documentDirectory + fileName;
+    console.log("file uri where it will actually be saved: ");
+    console.log(fileUri);
+
+    try {
+      await FileSystem.copyAsync({
+        from: firstPhotoUri,
+        to: fileUri,
+      });
+      console.log('Image saved successfully!');
+    } 
+    catch (error) {
+      console.error(error);
     }
-    const asset = await MediaLibrary.createAssetAsync(firstPhotoUri);
-    //const album = await MediaLibrary.getAlbumAsync("plantApp");
-    //if (!album){
-    //  console.log("creating album");
-    //  const album = await MediaLibrary.createAlbumAsync("plantApp", asset);
-    //  console.log(album);
-    //}
-    //else {
-    //  console.log("album already created");
-    //  await MediaLibrary.addAssetsToAlbumAsync([asset], album);
-    //}
-    return asset;
+    return fileUri;
   }
 
-  async function saveMetadata(asset, results) {
+  async function saveMetadata(localUri, results) {
     // build the new identification object with disease details and image location
     let imageUri = undefined;
-    if (asset) {
-      imageUri = asset.uri;
+    if (localUri) {
+      imageUri = localUri;
     }
     const date = new Date();
     const analysedDiseases = results;
-    const newHistoryObject = { imageUri, date, selectedPlant, analysedDiseases, asset };
+    const newHistoryObject = { imageUri, date, selectedPlant, analysedDiseases };
     // fetch the old history array and replace it with the new history array with added new entry
     let history = await AsyncStorage.getItem('history');
     history = history ? JSON.parse(history) : [];

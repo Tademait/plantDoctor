@@ -14,7 +14,9 @@ function HomeScreen({navigation}) {
         <Ionicons name="chevron-forward" size={50} color="#8cd253" style={styles.iconRight} />
       </TouchableOpacity>
       <Text style={styles.titleText}>News: </Text> 
-      <NewsList news={newsList} />
+      {newsList 
+      ? <NewsList news={newsList} />
+      : <Text style={{textAlign: 'center', marginTop: 30, fontSize: 14, padding: 10, color: COLOR_SECONDARY}}>No news available</Text>}
     </View>
   )
 }

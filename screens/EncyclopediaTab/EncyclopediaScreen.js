@@ -4,6 +4,8 @@ import {useState, useEffect} from 'react';
 import PlantDiseaseList from './PlantDiseaseList';
 import useDiseaseList from '../../hooks/useDiseaseList';
 import usePlantList from '../../hooks/usePlantList';
+import { COLOR_PRIMARY } from '../../constants';
+
 
 
 
@@ -32,7 +34,7 @@ function EncyclopediaScreen({navigation}) {
         {plantList.map(plant => (
         <Picker.Item key={plant} label={plant} value={plant} />))}
       </Picker>}
-      {isLoading && <ActivityIndicator size="large" color="#00ff00" />}
+      {isLoading && <ActivityIndicator size="large" color={COLOR_PRIMARY} />}
       {data && 
         <PlantDiseaseList
         plantDiseases={data}
