@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Button, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import useNewsList from '../../hooks/useNewsList';
 import NewsList from './NewsList';
 import {COLOR_PRIMARY, COLOR_SECONDARY} from '../../constants';
@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   iconLeft: {
-    marginRight: 48
+    marginRight: 30
   },
   iconRight: {
-    marginLeft: 40
+    marginLeft: 5
   },
   titleText: {
     color: COLOR_SECONDARY,

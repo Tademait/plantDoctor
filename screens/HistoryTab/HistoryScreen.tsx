@@ -132,7 +132,7 @@ function HistoryScreen({navigation}) {
               <View style={styles.entryContainer}>
                 {item.imageUri
                 ? <Image source={{uri:item.imageUri}} style={styles.entryImage} />
-                : <Text>No image</Text>}
+                : <Text style={styles.noImage}>No image</Text>}
                 <Text style={styles.entryTextSecondary}> Tap to show details </Text>
                 <View style={styles.detail}>
                   <Text style={styles.entryText}> {formatDate(item.date)} </Text>
@@ -171,10 +171,11 @@ const styles = StyleSheet.create({
     paddingRight: 30
   },
   entryText: {
-    fontWeight: '500',
-    fontSize: 16,
+    fontWeight: '400',
+    fontSize: 14,
     textAlign: 'right',
-    paddingTop: 10
+    paddingTop: 10,
+    paddingBottom: 5
   },
   entryTextSecondary: {
     fontSize: 12,
@@ -185,6 +186,8 @@ const styles = StyleSheet.create({
   },
   detail: {
     flex: 2,
+    padding: 5,
+    marginLeft: 5
   },
   deleteButton: {
     flexDirection: 'row',
@@ -215,8 +218,15 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 5,
     backgroundColor: COLOR_PRIMARY+'20',
+  },
+  noImage: {
+    flex: 1,
+    width: 100,
+    height: 100,
+    textAlign: 'center',
+    fontSize: 10,
+    color: COLOR_SECONDARY
   }
-
 });
 
 export default HistoryScreen;
