@@ -1,15 +1,19 @@
  import {useEffect, useState} from 'react';
  import {API_BASE_URL} from '../constants';
  
- function usePlantList(): {plantList: string[] | []} {
+ function usePlantList(): {plantList: string[] | [], loading: boolean, error: boolean} {
   const [plantList, setPlantList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   
   useEffect(() => {
+    setLoading(true);
     fetch(`${API_BASE_URL}/v1/plant_list`)
       .then(response => response.json())
       .then(data => setPlantList(data.plants))
-      .catch(error => console.error(error));
+      .catch(error => {console.error(error); setError(true)})
+      .finally(() => setLoading(false));
   }, []);
-  return {plantList}
+  return {plantList, loading, error};
  }
  export default usePlantList;

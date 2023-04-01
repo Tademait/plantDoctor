@@ -18,7 +18,7 @@ interface Props {
 }
 
 function PhotoSecondPreview({ photoUri, onRetake, onStartOver, onSubmit, isLoading, selectedPlant, setSelectedPlant }: Props) {
-  const {plantList} = usePlantList();
+  const {plantList, loading, error} = usePlantList();
   return (
     <View style={styles.container}>
       {photoUri &&<Image source={{ uri: photoUri }} style={styles.preview} />}
@@ -29,14 +29,17 @@ function PhotoSecondPreview({ photoUri, onRetake, onStartOver, onSubmit, isLoadi
       </View>
       <View>
         <View style={styles.pickerContainer}>
-        {plantList && <Picker
+        {plantList && !loading ?
+         <Picker
           selectedValue={selectedPlant}
           onValueChange={(itemValue, itemIndex) =>
             setSelectedPlant(itemValue)
-          }>
+            }>
           {plantList.map(plant => (
             <Picker.Item key={plant} label={plant} value={plant} />))}
-          </Picker>}
+          </Picker>
+          : <ActivityIndicator size="large" color={COLOR_PRIMARY} />}
+          {error && <Text>An error occured, please try again</Text>}
         </View>
         <CustomButton buttonText="Analyze" iconName="eye-outline" handlePress={onSubmit} />
         <View style={styles.buttonContainer}>
