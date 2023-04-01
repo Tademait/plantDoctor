@@ -5,7 +5,7 @@ import {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import usePlantList from '../../hooks/usePlantList';
 import Feather from 'react-native-vector-icons/Feather';
-import {COLOR_SECONDARY} from '../../constants';
+import {COLOR_PRIMARY, COLOR_SECONDARY} from '../../constants';
 import {formatDate} from '../../helpers';
 import { historyObjectType } from '../../types/historyObjectType';
 import * as FileSystem from 'expo-file-system';
@@ -111,14 +111,17 @@ function HistoryScreen({navigation}) {
   return (
     <View>
       <Button title={sortButtonText[sortButtonTextIndex]} onPress={handleSort} color={COLOR_SECONDARY}/>
-      {plantList && <Picker
+      {plantList && 
+      <View style={styles.pickerContainer}>
+        <Picker
           style={styles.picker}
           selectedValue={selectedPlant}
           onValueChange={(itemValue, itemIndex) => handlePlantChange(itemValue)}>
           <Picker.Item label="all plants" value="all" />
           {plantList.map(plant => (
           <Picker.Item key={plant} label={plant} value={plant} />))}
-      </Picker>}
+        </Picker>
+      </View>}
       {checkArrayExists(filteredData)
         ? (
         <FlatList
@@ -205,7 +208,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     color: COLOR_SECONDARY,
-
+  },
+  pickerContainer: {
+    borderColor: COLOR_PRIMARY,
+    borderWidth: 1,
+    borderRadius: 5,
+    margin: 5,
+    backgroundColor: COLOR_PRIMARY+'20',
   }
 
 });
