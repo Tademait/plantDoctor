@@ -11,7 +11,7 @@ export default StyleSheet.create({
   infoText: {
     color: COLOR_SECONDARY,
     fontWeight: '500',
-    fontSize: 16,
+    fontSize: 14,
     textAlign: 'left'
   }
 });

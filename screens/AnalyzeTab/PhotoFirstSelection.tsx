@@ -45,10 +45,10 @@ const PhotoFirstSelection = ({ onPhotoSelected }: Props) => {
       <View style={styles.textContainer}>
       <Text style={textStyle.infoText}>Please, provide an image of the leaf. Make sure it is properly cropped: </Text>
       </View>
-      <Image source={require('./help1.png')} style={{width: 300, height: 300, resizeMode: 'center'}} />
+      <Image source={require('./help1.png')} style={{width: 300, height: 300, resizeMode: 'center', marginTop: 5}} />
       <View style={styles.buttonContainer}>
-        <CustomButton buttonText="Take a Picture" iconName="camera-outline" handlePress={handleCameraButtonPress} />
-        <CustomButton buttonText="Choose From Gallery" iconName="image-outline" handlePress={handleGalleryButtonPress} />
+        <CustomButton buttonText="Take a Photo" iconName="camera-outline" handlePress={handleCameraButtonPress} />
+        <CustomButton buttonText="Select From Gallery" iconName="image-outline" handlePress={handleGalleryButtonPress} />
       </View>
     </View>
   );
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 70,
     flexDirection: 'row',
+    padding: 10,
   },
 });
 
