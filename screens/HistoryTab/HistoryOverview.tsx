@@ -2,8 +2,8 @@ import React from 'react';
 import {Text, ScrollView, Image, StyleSheet} from 'react-native';
 import PercentageOverview from '../../components/PercentageOverview';
 import {COLOR_SECONDARY} from '../../constants';
-import { capitalizeWords } from '../../helpers';
-import { historyObjectType } from '../../types/historyObjectType';
+import { capitalizeWords, formatDateLong } from '../../helpers';
+
 
 // @ts-ignore
 function HistoryOverview({route, navigation}) {
@@ -20,6 +20,7 @@ function HistoryOverview({route, navigation}) {
       {(historyObj && historyObj.imageUri) 
       ? <Image source={{uri:historyObj.imageUri}} style={styles.image} />
       : <Text style={styles.emptyText}>No image data available </Text>}
+      {historyObj && <Text style={styles.titleText}>{formatDateLong(historyObj.date)}</Text>}
       <Text style={styles.titleText}>Analysis history: </Text>
       {historyObj && historyObj.analysedDiseases
       ? <PercentageOverview data={historyObj.analysedDiseases} handlePercentageClick={handlePercentageClick}/>
