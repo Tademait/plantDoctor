@@ -21,7 +21,8 @@ const CustomButton: React.FC<Props> = ({buttonText, iconName, handlePress, secon
       alignItems: 'center',
       flexDirection: 'row',
       padding: 10,
-      margin: 5
+      margin: 5,
+      borderRadius: 5
     },
     buttonText: {
       color: (secondary ? COLOR_PRIMARY : '#fff'),

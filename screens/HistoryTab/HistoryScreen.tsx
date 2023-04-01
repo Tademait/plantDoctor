@@ -2,7 +2,6 @@ import React from 'react';
 import {Text, Alert, View, Button, Image, TouchableOpacity, FlatList, StyleSheet} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import {useState} from 'react';
-import * as MediaLibrary from 'expo-media-library';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import usePlantList from '../../hooks/usePlantList';
 import Feather from 'react-native-vector-icons/Feather';
@@ -192,7 +191,8 @@ const styles = StyleSheet.create({
     marginTop: 46,
     width: 100,
     position: 'absolute',
-    right: 0
+    right: 0,
+    borderRadius: 5
   },
   deleteText: {
     color: "#fff",
