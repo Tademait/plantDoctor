@@ -3,8 +3,9 @@ import {View, Image, Text, StyleSheet, ActivityIndicator} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import usePlantList from '../../hooks/usePlantList';
 import CustomButton from '../../components/CustomButton';
-import {COLOR_PRIMARY, COLOR_SECONDARY} from '../../constants';
+import {COLOR_PRIMARY} from '../../constants';
 import textStyle from '../../assets/Style';
+import CustomLoadingModal from '../../components/CustomLoadingModal';
 
 
 interface Props {
@@ -22,7 +23,7 @@ function PhotoSecondPreview({ photoUri, onRetake, onStartOver, onSubmit, isLoadi
   return (
     <View style={styles.container}>
       {photoUri &&<Image source={{ uri: photoUri }} style={styles.preview} />}
-      {isLoading && <ActivityIndicator size="large" color={COLOR_PRIMARY} />}
+      {isLoading && <CustomLoadingModal />}
       <View style={styles.textContainer}>
       <Text style={textStyle.infoText}>Select the species
        of your plant and start analyzing:</Text>
@@ -39,7 +40,7 @@ function PhotoSecondPreview({ photoUri, onRetake, onStartOver, onSubmit, isLoadi
             <Picker.Item key={plant} label={plant} value={plant} />))}
           </Picker>
           : <ActivityIndicator size="large" color={COLOR_PRIMARY} />}
-          {error && <Text>An error occured, please try again</Text>}
+          {error && <Text>An error occured, please try again.</Text>}
         </View>
         <CustomButton buttonText="Analyze" iconName="eye-outline" handlePress={onSubmit} />
         <View style={styles.buttonContainer}>
