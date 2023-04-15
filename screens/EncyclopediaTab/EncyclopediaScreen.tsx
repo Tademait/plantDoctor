@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ActivityIndicator, StyleSheet} from 'react-native';
+import {View, ActivityIndicator, StyleSheet, SafeAreaView} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import {useState} from 'react';
 import PlantDiseaseList from './PlantDiseaseList';
@@ -24,7 +24,7 @@ function EncyclopediaScreen({navigation}) {
   }
 
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1 }}>
       {plantList && 
       <View style={styles.pickerContainer}>
         <Picker
@@ -44,7 +44,7 @@ function EncyclopediaScreen({navigation}) {
         onPressPlantDisease={handlePressPlantDisease}
         />
       }
-    </View>
+    </SafeAreaView>
   )
 }
 
