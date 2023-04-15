@@ -3,7 +3,7 @@ import {useState} from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 // @ts-ignore
 import { Feather } from 'react-native-vector-icons';
-import {COLOR_PRIMARY, COLOR_SECONDARY} from '../constants';
+import {COLOR_SECONDARY} from '../constants';
 
 interface Props {
   pictures: Array<{url: string}>;
@@ -14,11 +14,15 @@ const GalleryView = ({pictures}: Props): JSX.Element => {
 
   function handleGalleryClick(direction: "left" | "right"){
     if (direction === "left"){
-      if (imageIndex-1 <= 0) {
-        setImageIndex(0);
-        return;
+      let newIndex = imageIndex - 1;
+      if (newIndex < 0){
+        newIndex = 0;
       }
-      setImageIndex(imageIndex-1);
+      if (newIndex > pictures.length){
+        newIndex = pictures.length - 1;
+      }
+      setImageIndex(newIndex);
+      return;
     }
     else if (direction === "right") {
       if (imageIndex+1 >= pictures.length)
@@ -29,9 +33,10 @@ const GalleryView = ({pictures}: Props): JSX.Element => {
   if (pictures && pictures.length > 0){
     return (
     <View style={styles.container}>
-        <Image
-          style={styles.image}
-          source={{uri: pictures[imageIndex].url}} />
+        {(pictures && pictures[imageIndex] && pictures[imageIndex].url)
+        ? <Image style={styles.image} source={{uri: pictures[imageIndex].url}} />
+        : <Text style={styles.image}>No img</Text>
+        }
         <TouchableOpacity onPress={() => handleGalleryClick("left")} style={styles.touchableLeft}>
           <Feather name="chevron-left" size={40} color="#ddd" style={styles.chevron} />
         </TouchableOpacity>

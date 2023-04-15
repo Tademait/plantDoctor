@@ -23,7 +23,7 @@ function ResultDisplay({onStartOver, apiResponse, navigation, plant}: Props) {
   <View>
       {apiResponse 
       ? (<View>
-        <Text style={{marginTop: 10, fontSize: 16, padding: 10, color: COLOR_SECONDARY, fontWeight: '500'}}>Top 5 likely {plant} diseases: </Text>
+        <Text style={{marginTop: 10, fontSize: 16, padding: 10, color: COLOR_SECONDARY, fontWeight: '500'}}>Most likely {plant} diseases: </Text>
         <PercentageOverview data={apiResponse} handlePercentageClick={handlePercentageClick}/></View>)
       : <Text style={{textAlign: 'center', marginTop: 30, fontSize: 14, padding: 10, color: COLOR_SECONDARY}}>Something went wrong</Text>}
     <View style={{marginTop: 50}}>
