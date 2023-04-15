@@ -3,6 +3,7 @@ import EncyclopediaScreen from './EncyclopediaScreen';
 import EncyclopediaDetail from './EncyclopediaDetail';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {COLOR_PRIMARY} from '../../constants';
+import { capitalizeWords } from '../../helpers';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +27,7 @@ function EncyclopediaStack() {
         name='EncyclopediaDetail'
         component={EncyclopediaDetail}
         // @ts-ignore
-        options={({ route }) => ({ title: route.params.title })}/>
+        options={({ route }) => ({ title: capitalizeWords(route.params.title) })}/>
       </Stack.Navigator>
   )
 }
