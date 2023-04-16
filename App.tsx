@@ -9,6 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {COLOR_PRIMARY} from './constants';
+import { StatusBar } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,6 +22,7 @@ interface IoniconsProps {
 function App() {
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor="transparent" translucent={true}/>
       <Tab.Navigator 
       screenOptions={({ route }) => ({
         headerShown: false,
