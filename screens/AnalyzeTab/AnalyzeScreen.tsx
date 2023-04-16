@@ -65,6 +65,7 @@ function AnalyzeScreen({navigation}) {
   async function saveImage() {
     //! TODO: maybe I will need to ask for permission to save the image into local storage
     // Save the image to local file system
+
     const fileName = firstPhotoUri.split('/').pop();
     if  (!fileName || FileSystem.documentDirectory === undefined) {
       Alert.alert('Error', 'Could not save the image, please try again.');
@@ -97,10 +98,6 @@ function AnalyzeScreen({navigation}) {
     const analysedDiseases = results;
     // fetch the old history array and replace it with the new history array with added new entry
     const history: string | null = await AsyncStorage.getItem('history');
-    if (!history) {
-      Alert.alert('Error', 'Could not save the analysis data.');
-      return;
-    }
     let history_array: historyObjectType[] = history ? JSON.parse(history) : [];
     const newHistoryObject: historyObjectType = { imageUri, date, selectedPlant, analysedDiseases };
     history_array.unshift(newHistoryObject); // use unshift to add at the start of array (sort from newest), otherwise use .push to sort from oldest
