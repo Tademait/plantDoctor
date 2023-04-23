@@ -1,6 +1,10 @@
  import {useEffect, useState} from 'react';
  import {API_BASE_URL} from '../constants';
  
+
+ /**
+ * Custom hook for retrieving the list of supported plants from the server.
+ */
  function usePlantList(): {plantList: string[] | [], loading: boolean, error: boolean} {
   const [plantList, setPlantList] = useState([]);
   const [loading, setLoading] = useState(true);

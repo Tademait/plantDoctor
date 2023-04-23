@@ -3,6 +3,11 @@ import { Alert } from 'react-native';
 import { API_BASE_URL } from '../constants';
 import { diseaseListEntryType } from '../types/diseaseListEntryType';
 
+
+/**
+ * Custom hook for retrieving the list of diseases for specified plant
+ * @param selectedPlant
+ */
 function useDiseaseList(selectedPlant: string): {data: diseaseListEntryType[] | [], isLoading: boolean} {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);

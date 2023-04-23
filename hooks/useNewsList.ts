@@ -2,6 +2,10 @@ import {useEffect, useState} from 'react';
 import {API_BASE_URL} from '../constants';
 import {newsEntryType} from '../types/newsEntryType';
  
+
+/**
+ * Custom hook for retrieving the news articles from the server.
+ */
  function useNewsList(): {newsList: newsEntryType[] | []} {
   const [newsList, setNewsList] = useState([]);
   

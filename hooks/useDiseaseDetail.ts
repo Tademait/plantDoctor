@@ -4,6 +4,11 @@ import {Alert} from 'react-native';
 import {diseaseDetailType} from '../types/diseaseDetailType';
 
 
+/**
+ * Custom hook for retrieving the detail of a specificed disease
+ * @param disease
+ * @param plant
+ */
 function useDiseaseDetail(disease: string, plant: string): {data: diseaseDetailType | null, isLoading: boolean} {
  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
