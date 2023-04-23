@@ -10,6 +10,12 @@ import {formatDate} from '../../helpers';
 import { historyObjectType } from '../../types/historyObjectType';
 import * as FileSystem from 'expo-file-system';
 
+/**
+* This is the main screen of History tab. It shows filters on the top
+* and a list of history entries. This component also wraps and handles
+* the sorting and deletion of items. Uses a useEffect hook to retrieve
+* data from local storage when the screen gets rendered.
+ */
 // @ts-ignore
 function HistoryScreen({navigation}) {
   const [historyData, setHistoryData] = useState([]);

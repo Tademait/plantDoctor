@@ -3,14 +3,10 @@ import {View, Button, ScrollView} from 'react-native';
 import GenericHelp from '../../components/GenericHelp';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-// type HomescreenStackParamList = {
-//   HomescreenMain: undefined;
-//   HomescreenHelp: undefined;
-//   Analyze: undefined;
-// };
-
-//type HelpScreenProps = NativeStackScreenProps<HomescreenStackParamList, 'HomescreenHelp'>;
-
+/**
+ * User tutorial component with GenericHelp functionality which also
+ * contains a button that takes user to the Analyze tab.
+ */
 // @ts-ignore
 function HomescreenHelp({navigation}): JSX.Element {
 

@@ -4,6 +4,12 @@ import { APP_VERSION, VERSION_YEAR } from '../../constants';
 import Feather from 'react-native-vector-icons/Feather';
 import {COLOR_PRIMARY} from '../../constants';
 
+
+/**
+ * The main screen for Settings tab, contains app info, About / Credits section,
+ * tutorial and for future use, there is prepared place for custom app settings
+ * and setting details.
+ */
 // @ts-ignore
 function SettingsScreen({navigation}) {
   return (

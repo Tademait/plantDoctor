@@ -12,6 +12,11 @@ interface PlantDiseaseItemProps {
   item: diseaseListEntryType;
 }
 
+
+/**
+* This component shows the list of each diseases for a specific plant. User can click
+* through to a disease detail.
+ */
 const PlantDiseaseList = ({ plantDiseases, onPressPlantDisease }: PlantDiseaseListProps) => {
 
   const renderItem = ({item}: PlantDiseaseItemProps) => (

@@ -8,6 +8,12 @@ interface Props {
   onPhotoSelected: (photoUri: string) => void;
 }
 
+
+/**
+ * This component handles the state when user is prompted
+ * to select the second image from gallery or take a picture
+ * using camera roll.
+ */
 const PhotoSecondSelection = ({ onPhotoSelected }: Props) => {
   
   const handleCameraButtonPress = async () => {

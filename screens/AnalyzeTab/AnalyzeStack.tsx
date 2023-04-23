@@ -6,6 +6,10 @@ import {COLOR_PRIMARY} from '../../constants';
 
 const Stack = createNativeStackNavigator();
 
+/**
+* This component registers all the screens that are part of the Analyze tab
+* and includes them in the nested StackNavigator.
+*/
 function AnalyzeStack() {
   // using options props to pass the name of the disease into screen header title
   return (

@@ -5,6 +5,12 @@ import NewsList from './NewsList';
 import {COLOR_PRIMARY, COLOR_SECONDARY} from '../../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+
+/**
+ * The main screen of the Homescreen tab. Contains the Get Started
+ * tutorial, and a NewsList component which uses useNewsList custom
+ * hook to fetch the news.
+ */
 // @ts-ignore
 function HomeScreen({navigation}) {
   const {newsList} = useNewsList();

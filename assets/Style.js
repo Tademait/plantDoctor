@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native';
 import {COLOR_SECONDARY} from '../constants';
 
+
+/**
+ * Generic stylesheet for text that is used throughout
+ * the application.
+ */
 export default StyleSheet.create({
   container: {
     flex: 1

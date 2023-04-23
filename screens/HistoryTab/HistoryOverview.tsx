@@ -4,7 +4,12 @@ import PercentageOverview from '../../components/PercentageOverview';
 import {COLOR_SECONDARY} from '../../constants';
 import { capitalizeWords, formatDateLong } from '../../helpers';
 
-
+/**
+* This component shows the details of a specific historical analysis
+* presenting the picture loaded up from local storage, data from
+* AsyncStorage including the PercentageOverview component that shows
+* the actual results.
+ */
 // @ts-ignore
 function HistoryOverview({route, navigation}) {
   const { historyObj } = route.params;

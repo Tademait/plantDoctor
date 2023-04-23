@@ -11,6 +11,11 @@ import * as FileSystem from 'expo-file-system';
 import { historyObjectType } from '../../types/historyObjectType';
 
 
+/**
+ * The main screen of the Analyze tab. It handles the state between
+ * picture selection and sends the data for analysis and also presents
+ * the results of analysis.
+ */
 // @ts-ignore
 function AnalyzeScreen({navigation}) {
   const [screenState, setScreenState] = useState('photoFirstSelection');
@@ -63,8 +68,7 @@ function AnalyzeScreen({navigation}) {
   }
 
   async function saveImage() {
-    //! TODO: maybe I will need to ask for permission to save the image into local storage
-    // Save the image to local file system
+    // Save the image to local file system that is private for the app.
 
     const fileName = firstPhotoUri.split('/').pop();
     if  (!fileName || FileSystem.documentDirectory === undefined) {

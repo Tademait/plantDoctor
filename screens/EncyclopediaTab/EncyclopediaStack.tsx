@@ -7,6 +7,10 @@ import { capitalizeWords } from '../../helpers';
 
 const Stack = createNativeStackNavigator();
 
+/**
+* This component registers all the screens that are part of the Encyclopedia tab
+ * and includes them in its nested StackNavigator.
+ */
 function EncyclopediaStack() {
   return (
       <Stack.Navigator

@@ -10,6 +10,12 @@ interface Props {
   isLoading: boolean;
 }
 
+
+/**
+ * This component handles the state when user is previewing
+ * the first image he has taken using camera roll or chosen
+ * from the gallery.
+ */
 function PhotoFirstPreview({ photoUri, onRetake, onSubmit, isLoading }: Props): JSX.Element {
   return (
     <View style={styles.container}>

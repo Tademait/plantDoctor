@@ -19,6 +19,14 @@ interface IoniconsProps {
   color: string;
 }
 
+/**
+ * The PlantDoctor app entry point.
+ * Registers RN Navigation with NavigationContainer and registers
+ * all the StackNavigators nested inside the main BottomTabNavigator 
+ *
+ * @version 1.0.0
+ * @author Tadeas Kozub
+ */
 function App() {
   return (
     <NavigationContainer>

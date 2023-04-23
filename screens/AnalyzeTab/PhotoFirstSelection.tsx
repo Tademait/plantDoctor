@@ -8,6 +8,11 @@ interface Props {
   onPhotoSelected: (photoUri: string) => void;
 }
 
+/**
+ * This component handles the state when user is prompted
+ * to select the first image from gallery or take a picture
+ * using camera roll
+ */
 const PhotoFirstSelection = ({ onPhotoSelected }: Props) => {
 
   const handleCameraButtonPress = async () => {

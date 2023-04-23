@@ -1,3 +1,7 @@
+/**
+ * This file contains all the constant variables used throughout the project file.
+ */
+
 export const APP_VERSION: string = '1.0.0';
 export const API_BASE_URL: string = 'https://tkozub.me/api';
 export const VERSION_YEAR: string = '2023';

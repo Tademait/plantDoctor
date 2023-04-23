@@ -13,6 +13,11 @@ function handleColorPress() {
   Linking.openURL('https://www.canva.com/colors/color-palettes/green-blaze/');
 }
 
+
+/**
+ * This component is the About / Credits section of the app containing  author info, contacts,
+ *  sources and credits
+ */
 function SettingsCredits() {
   return (
     <View style={styles.container}>

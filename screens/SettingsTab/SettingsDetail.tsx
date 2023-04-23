@@ -1,7 +1,9 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
-
+/**
+ * Detail screen for specific settings (currently set up for future use)
+ */
 function SettingsDetail() {
   return (
     <View>

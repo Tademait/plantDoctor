@@ -18,6 +18,13 @@ interface Props {
   setSelectedPlant: (plant: string) => void;
 }
 
+
+/**
+ * This component handles the state when user is previewing
+ * the second image he has taken using camera roll or chosen
+ * from the gallery. It also presents the Picker with supported
+ * plants and let's the user upload the pics and start analysis.
+ */
 function PhotoSecondPreview({ photoUri, onRetake, onStartOver, onSubmit, isLoading, selectedPlant, setSelectedPlant }: Props) {
   const {plantList, loading, error} = usePlantList();
   return (

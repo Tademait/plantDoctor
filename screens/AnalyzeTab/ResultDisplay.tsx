@@ -12,6 +12,14 @@ interface Props {
   plant: string;
 }
 
+/**
+ * Part of the state when user sends both pictures for analysis and is
+ * being presented with the results.
+ * @param onStartOver
+ * @param apiResponse
+ * @param navigation
+ * @param plant
+ */
 function ResultDisplay({onStartOver, apiResponse, navigation, plant}: Props) {
   function handlePercentageClick(item: {name: string, percentage: number}) {
     navigation.navigate('AnalyzeDetail', {

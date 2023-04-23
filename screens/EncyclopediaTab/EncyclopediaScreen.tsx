@@ -8,7 +8,12 @@ import usePlantList from '../../hooks/usePlantList';
 import { COLOR_PRIMARY } from '../../constants';
 import { diseaseListEntryType } from '../../types/diseaseListEntryType';
 
-
+/** 
+ * This is the main screen of the Encyclopedia tab.
+ * It shows the picker element for user to select a specific plant
+ * and a PlantDiseaseList component to let user scroll through.
+ * Uses custom hook usePlantList to populate the picker.
+ */
 // @ts-ignore
 function EncyclopediaScreen({navigation}) {
   const [selectedPlant, setSelectedPlant] = useState("tomato");

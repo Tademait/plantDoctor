@@ -1,3 +1,8 @@
+/**
+ * This file contains helper functions especially
+ * for text formatting.
+ */
+
 export function formatDate(date: Date): string {
   if (!date) {
     return '';
