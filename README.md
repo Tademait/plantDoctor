@@ -39,6 +39,10 @@ export ANDROID_HOME=/home/user/Android/Sdk
 npx expo start
 ```
 
+## Personal dev environment setup
+If you are hosting your own backend and database, you can change the API connection string in the `constants.js` file.
+The connection should be HTTPS and signed by trusted CA. If hosting a custom server, you can achieve that using `certbot` via Let's Encrypt. 
+
 
 # apk installer building process
 
