@@ -22,7 +22,7 @@ const PhotoFirstSelection = ({ onPhotoSelected }: Props) => {
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
         aspect: [1, 1],
-        quality: 1,
+        quality: 0.2,
       });
       if (!result.canceled && result.assets && result.assets.length > 0) {
         onPhotoSelected(result.assets[0].uri);
@@ -37,7 +37,7 @@ const PhotoFirstSelection = ({ onPhotoSelected }: Props) => {
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
         aspect: [1, 1],
-        quality: 1,
+        quality: 0.2,
       });
       if (!result.canceled && result.assets && result.assets.length > 0) {
         onPhotoSelected(result.assets[0].uri);
