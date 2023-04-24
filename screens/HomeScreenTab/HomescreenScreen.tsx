@@ -1,9 +1,11 @@
-import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {View, Text, TouchableOpacity, StyleSheet, Modal, Button} from 'react-native';
 import useNewsList from '../../hooks/useNewsList';
 import NewsList from './NewsList';
 import {COLOR_PRIMARY, COLOR_SECONDARY} from '../../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import WelcomeModal from '../../components/WelcomeModal';
 
 
 /**
@@ -14,8 +16,26 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // @ts-ignore
 function HomeScreen({navigation}) {
   const {newsList} = useNewsList();
+  const [showModal, setShowModal] = useState(true);
+  const [isFirstLaunch, setIsFirstLaunch] = useState(false);
+  
+  useEffect(() => {
+    // Check if app has been launched before
+    AsyncStorage.getItem('alreadyLaunched').then((value) => {
+      if (value == null) {
+        AsyncStorage.setItem('alreadyLaunched', 'true');
+        setIsFirstLaunch(true);
+      } else {
+        setIsFirstLaunch(false);
+      }
+      console.log(isFirstLaunch);
+    });
+  }, []);
+
+
   return (
     <View style={styles.container}>
+      {isFirstLaunch && <WelcomeModal showModal={showModal} setShowModal={setShowModal}/>}
       <TouchableOpacity style={styles.actionButton} onPress={() => navigation.navigate('HomescreenHelp')}>
         <Ionicons name="leaf" size={50} color="#8cd253" style={styles.iconLeft}/>
         <Text style={styles.buttonText}> New? Get started! </Text>

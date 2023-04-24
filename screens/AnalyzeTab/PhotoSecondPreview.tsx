@@ -49,7 +49,9 @@ function PhotoSecondPreview({ photoUri, onRetake, onStartOver, onSubmit, isLoadi
           : <ActivityIndicator size="large" color={COLOR_PRIMARY} />}
           {error && <Text>An error occured, please try again.</Text>}
         </View>
-        <CustomButton buttonText="Analyze" iconName="eye-outline" handlePress={onSubmit} />
+        {(!loading && !error)
+        ? <CustomButton buttonText="Analyze" iconName="eye-outline" handlePress={onSubmit} />
+        : <CustomButton buttonText='Waiting' iconName='close-outline' handlePress={() => {}}/>}
         <View style={styles.buttonContainer}>
           <CustomButton buttonText="Retake Last Photo" iconName="return-down-back-outline" handlePress={onRetake} secondary={true} />
           <CustomButton buttonText="Start Over" iconName="refresh-outline" handlePress={onStartOver} secondary={true} />

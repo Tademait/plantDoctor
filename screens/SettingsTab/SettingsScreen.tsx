@@ -1,8 +1,12 @@
-import React from 'react';
-import {Text, View, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {Text, View, TouchableOpacity, Image, StyleSheet, Alert} from 'react-native';
 import { APP_VERSION, VERSION_YEAR } from '../../constants';
 import Feather from 'react-native-vector-icons/Feather';
 import {COLOR_PRIMARY} from '../../constants';
+import { Button } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Separator from '../../components/Separator';
+import FlipSwitch from '../../components/FlipSwitch';
 
 
 /**
@@ -12,8 +16,58 @@ import {COLOR_PRIMARY} from '../../constants';
  */
 // @ts-ignore
 function SettingsScreen({navigation}) {
+
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    // Check if app has been launched before
+    AsyncStorage.getItem('darkMode').then((value) => {
+      if (value == null) {
+        setDarkMode(false);
+      } else {
+        setDarkMode(Boolean(value));
+      }
+    });
+  }, []);
+
+
+  async function deleteAllUserData(){
+      Alert.alert(
+        'Delete All User Data',
+        'Are you sure about this?',
+        [
+          {
+            text: 'Cancel',
+            style: 'cancel',
+          },
+          {
+            text: 'OK',
+            onPress: () => {
+              AsyncStorage.clear()
+              .then(() => console.log('AsyncStorage cleared successfully!'))
+              .catch((err) => console.log('Error clearing AsyncStorage:', err));
+            },
+          },
+        ],
+        { cancelable: false }
+      )
+  }
+
   return (
     <View style={styles.container}>
+      <View style={{paddingBottom: 10, paddingTop: 10}}>
+      <Button title={"Delete all user data"} onPress={deleteAllUserData} color={"#b3101e"} />
+      </View>
+      <View style={{height:50}}>
+        <View style={{flex:1, flexDirection: 'row', paddingTop: 10}}>
+          <View style={{flex:1, height: 50}}>
+            <Text>Enable dark mode:</Text>
+          </View>
+          <View style={{flex:1, height: 50}}>
+            <FlipSwitch setIsOn={setDarkMode} isOn={darkMode}/>
+          </View>
+        </View>
+      </View>
+      <Separator/>
       <TouchableOpacity style={styles.customButton} onPress={() => navigation.navigate('SettingsHelp')}>
         <Feather name="help-circle" size={30} color={'white'} style={styles.iconLeft} />
         <Text style={styles.buttonText}> Get Help - Tutorial </Text>

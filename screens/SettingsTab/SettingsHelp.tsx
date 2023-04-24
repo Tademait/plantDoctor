@@ -8,7 +8,7 @@ import GenericHelp from '../../components/GenericHelp';
 function SettingsHelp() {
 
   return (
-   <GenericHelp />
+      <GenericHelp/>
   )
 }
 

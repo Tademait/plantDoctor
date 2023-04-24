@@ -36,6 +36,11 @@ function HistoryScreen({navigation}) {
           setHistoryData(JSON.parse(storedHistory));
           setFilteredData(JSON.parse(storedHistory));
         }
+        else {
+          // in case there is no history, reset the states
+          setHistoryData([]);
+          setFilteredData([]);
+        }
       } catch (error) {
         console.error(error);
       }
