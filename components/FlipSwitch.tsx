@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { COLOR_PRIMARY } from '../constants';
 
 function FlipSwitch({setIsOn, isOn}: any){
@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   switch: {
+    alignItems: 'center',
+    justifyContent: 'center',
     width: 60,
     height: 30,
     borderRadius: 15,
     backgroundColor: '#ccc',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   switchOn: {
     backgroundColor: COLOR_PRIMARY,

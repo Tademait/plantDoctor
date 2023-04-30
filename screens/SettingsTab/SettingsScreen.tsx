@@ -57,16 +57,6 @@ function SettingsScreen({navigation}) {
       <View style={{paddingBottom: 10, paddingTop: 10}}>
       <Button title={"Delete all user data"} onPress={deleteAllUserData} color={"#b3101e"} />
       </View>
-      <View style={{height:50}}>
-        <View style={{flex:1, flexDirection: 'row', paddingTop: 10}}>
-          <View style={{flex:1, height: 50}}>
-            <Text>Enable dark mode:</Text>
-          </View>
-          <View style={{flex:1, height: 50}}>
-            <FlipSwitch setIsOn={setDarkMode} isOn={darkMode}/>
-          </View>
-        </View>
-      </View>
       <Separator/>
       <TouchableOpacity style={styles.customButton} onPress={() => navigation.navigate('SettingsHelp')}>
         <Feather name="help-circle" size={30} color={'white'} style={styles.iconLeft} />
