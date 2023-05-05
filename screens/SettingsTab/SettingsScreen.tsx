@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {Text, View, TouchableOpacity, Image, StyleSheet, Alert} from 'react-native';
 import { APP_VERSION, VERSION_YEAR } from '../../constants';
 import Feather from 'react-native-vector-icons/Feather';
@@ -6,7 +6,6 @@ import {COLOR_PRIMARY} from '../../constants';
 import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Separator from '../../components/Separator';
-import FlipSwitch from '../../components/FlipSwitch';
 
 
 /**
@@ -16,19 +15,6 @@ import FlipSwitch from '../../components/FlipSwitch';
  */
 // @ts-ignore
 function SettingsScreen({navigation}) {
-
-  const [darkMode, setDarkMode] = useState(false);
-  useEffect(() => {
-    // Check if app has been launched before
-    AsyncStorage.getItem('darkMode').then((value) => {
-      if (value == null) {
-        setDarkMode(false);
-      } else {
-        setDarkMode(Boolean(value));
-      }
-    });
-  }, []);
-
 
   async function deleteAllUserData(){
       Alert.alert(

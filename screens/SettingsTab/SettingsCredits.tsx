@@ -39,7 +39,7 @@ function SettingsCredits() {
           <Text style={styles.linkText}> https://www.canva.com/colors/color-palettes/green-blaze </Text>
         </TouchableOpacity>
       <Separator />
-      <Text>Built under the Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license. </Text>
+      <Text>Icons used are FeatherIcons, Ionicons and CoreUI Icons by IconDuck. </Text>
       <Text style={styles.bottomText}>Created with ❤ and React Native </Text>
     </View>
   )

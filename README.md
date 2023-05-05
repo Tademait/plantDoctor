@@ -58,3 +58,7 @@ change eas.json settings:
         "android": {buildType: "apk"}
 eas build -p android --profile preview
 ```
+
+# Credits
+Base look of logo provided using CoreUI Icons by IconDuck
+Data about plant diseases provided by PlantVillage https://plantvillage.psu.edu/plants
