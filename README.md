@@ -64,5 +64,6 @@ Base look of logo provided using CoreUI Icons by IconDuck
 Data about plant diseases provided by PlantVillage https://plantvillage.psu.edu/plants
 
 # Screenshots
-![screen1](https://imgur.com/Xy3LasT)
-![screen2](https://imgur.com/a/PtMIxPq)
+![screen1](https://i.imgur.com/Xy3LasT.png)
+![screen2](https://i.imgur.com/z2sx0MK.png)
+![screen3](https://i.imgur.com/gPVMSF4.png)
