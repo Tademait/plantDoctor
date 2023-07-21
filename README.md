@@ -62,3 +62,7 @@ eas build -p android --profile preview
 # Credits
 Base look of logo provided using CoreUI Icons by IconDuck
 Data about plant diseases provided by PlantVillage https://plantvillage.psu.edu/plants
+
+# Screenshots
+![screen1](https://imgur.com/Xy3LasT)
+![screen2](https://imgur.com/a/PtMIxPq)
