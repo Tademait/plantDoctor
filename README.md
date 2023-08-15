@@ -1,3 +1,6 @@
+# Info
+The backend portion of the app is written in Python and using the FastAPI framework; available [here](https://github.com/Tademait/rest_api_plant_diseases)
+
 # setup process
 
 > Note: You can also the follow the guide on the Expo website: https://docs.expo.dev/get-started/installation/
